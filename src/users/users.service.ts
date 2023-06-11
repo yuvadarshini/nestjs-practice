@@ -17,5 +17,21 @@ export class UsersService {
     getUsers(): UserDto[] {
         return this.users;
     }
+
+    getOneUser(id: number): number {
+        return id;
+    }
+
+    createUser(body: UserDto): string {
+        return `Created user with name ${body.name} and phone no: ${body.phoneNo}`
+    }
+
+    updateOneUser(id: number): number {
+        return id;
+    }
+
+    deleteOneUser(id: number): string {
+        return `deleted user with id: ${id}`
+    }
         
 }
