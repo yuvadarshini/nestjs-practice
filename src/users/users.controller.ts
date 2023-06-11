@@ -15,9 +15,9 @@ export class UsersController {
 
     // getting one user
     @Get(':id')
-    getOneUser(@Param('id') id): string {
+    getOneUser(@Param('id') id): number {
         // call the database with the given id and the database will return the user and this function will return the same
-        return id
+        return this.usersService.getOneUser(id);
     }
 
     // creating a user
@@ -25,21 +25,20 @@ export class UsersController {
     createUser(@Body() createUserDto: UserDto): string {
         console.log(createUserDto)
         // write to the database with this created user
-        return `Created user with name ${createUserDto.name} and phone no: ${createUserDto.phoneNo}`
+        return this.usersService.createUser(createUserDto);
     }
 
     // updating a user
     @Put(':id')
-    updateOneUser(@Param('id') id): string {
+    updateOneUser(@Param('id') id): number {
         // execute a database query that updates the user and return it
-        return id
+        return this.usersService.updateOneUser(id);
     }
 
     // deleting a user
     @Delete(':id')
     deleteOneUser(@Param('id') id): string {
         // execute a database query that deletes the user
-        return `deleted user with id: ${id}`
+        return this.usersService.deleteOneUser(id);
     }
- 
 }
